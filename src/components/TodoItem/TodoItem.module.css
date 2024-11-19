@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Outfit:wght@100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+.item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s;
+}
+
+.item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.checkbox {
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.checkbox:hover input ~ .checkmark {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.checkbox input:checked ~ .checkmark {
+  background: rgba(72, 187, 120, 0.3);
+  border-color: rgba(72, 187, 120, 0.5);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.title {
+  flex: 1;
+  margin-left: 1rem;
+  font-size: 1rem;
+  color: white;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.deleteButton {
+  padding: 0.5rem 1rem;
+  background: rgba(252, 129, 129, 0.1);
+  border: 1px solid rgba(252, 129, 129, 0.3);
+  color: white;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  font-family: "Outfit";
+}
+
+.deleteButton:hover {
+  background: rgba(252, 129, 129, 0.2);
+}
+
+.deleteButton.confirm {
+  background: rgba(229, 62, 62, 0.2);
+  border-color: rgba(229, 62, 62, 0.4);
+}
+
+@media (max-width: 640px) {
+  .item {
+    flex-direction:row;
+    gap: 1rem;
+    text-align: center;
+    padding: 1rem;
+    && .deleteButton{
+        width: 8em;
+    }
+  }
+  
+  .title {
+    margin: 0.5rem 0;
+  }
+  
+  .deleteButton {
+    width: 100%;
+  }
+}
